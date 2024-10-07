@@ -16,5 +16,5 @@ if [ "$(echo "$USERS" | wc -l)" -gt 0 ]; then
     # Import users from final conf file
     while IFS= read -r user || [[ -n "$user" ]]; do
         create-sftp-user "$user"
-    done << (printf '%s\n' "$USERS")
+    done <(printf '%s\n' "$USERS")
 fi
